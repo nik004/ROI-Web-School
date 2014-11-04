@@ -1,0 +1,1 @@
+Git doesn't store folders, only files are stored. This file is used just to force directory creation.
