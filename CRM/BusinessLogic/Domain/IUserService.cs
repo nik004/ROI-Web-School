@@ -1,10 +1,14 @@
 ﻿namespace Crm.Domain
 {
-    public interface IUserService
+	using System.Collections.Generic;
+
+	public interface IUserService
     {
-        void CreateUser(IUser user);
-        IUser GetUser(int userId);
-        IUser UpdateUser(IUser user);
-        void DeleteUser(int userId);
+        void Create(IUser user, string password);
+        IUser Read(int id);
+        void Update(IUser user);
+        void Delete(int id);
+		void SetPassword(int id, string password);
+		IEnumerable<IUser> GetAll();
     }
 }

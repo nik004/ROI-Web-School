@@ -5,7 +5,9 @@ using Crm.Domain;
 
 namespace UnitTests
 {
-    [TestClass]
+	using System.Collections.Generic;
+
+	[TestClass]
     public class ServiceFactoryTests
     {
         [TestMethod]
@@ -42,25 +44,35 @@ namespace UnitTests
 
         private class UserService : IUserService
         {
-            public void CreateUser(IUser user)
+            public void Create(IUser user, string password)
             {
                 throw new NotImplementedException();
             }
 
-            public IUser GetUser(int userId)
+            public IUser Read(int id)
             {
                 throw new NotImplementedException();
             }
 
-            public IUser UpdateUser(IUser user)
+            public void Update(IUser user)
             {
                 throw new NotImplementedException();
             }
 
-            public void DeleteUser(int userId)
+            public void Delete(int id)
             {
                 throw new NotImplementedException();
             }
+
+	        public void SetPassword(int id, string password)
+	        {
+		        throw new NotImplementedException();
+	        }
+
+	        public IEnumerable<IUser> GetAll()
+	        {
+		        throw new NotImplementedException();
+	        }
         }
 
         [TestMethod]
@@ -70,7 +82,7 @@ namespace UnitTests
             ServiceFactory.Override<IUserService>(new ServiceFactory.PerResolve<UserService>());
             var service = ServiceFactory.Resolve<IUserService>();
             Assert.IsNotNull(service);
-            service.CreateUser(null);
+            service.Create(null, null);
         }
     }
 }

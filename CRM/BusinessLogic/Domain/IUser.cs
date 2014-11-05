@@ -6,6 +6,5 @@
         string FirstName { get; }
         string LastName { get; }
         string Login { get; }
-        string Password { get; }
     }
 }

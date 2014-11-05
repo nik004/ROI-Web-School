@@ -1,29 +1,120 @@
-﻿using System;
-using Crm.Domain;
-
-namespace Crm.Services
+﻿namespace Crm.Services
 {
-    [Service(ServiceOption.PerResolve)]
+	using System;
+	using System.Data.Entity;
+	using System.Linq;
+	using Data;
+	using Data.Entities;
+	using Domain;
+
+	using System.Collections.Generic;
+
+	[Service(ServiceOption.PerResolve)]
     internal class UserService : IUserService
     {
-        public void CreateUser(IUser user)
+        public void Create(IUser user, string password)
+        {
+	        using (var context = CrmContextFactory.Current.CreateContext())
+	        {
+		        context.Users.Add(
+			        new User
+			        {
+				        FirstName = user.FirstName,
+				        LastName = user.LastName,
+				        Login = user.Login,
+				        Password = password
+			        }
+			    );
+
+				context.SaveChanges();
+	        }
+        }
+
+        public IUser Read(int id)
+        {
+	        using (var context = CrmContextFactory.Current.CreateContext())
+	        {
+		        try
+		        {
+			        return
+				        context.Users.AsNoTracking()
+					    .Where(user => user.Id == id)
+					    .Select(
+						    user => new DomainUser
+						    {
+							    Id = user.Id,
+							    FirstName = user.FirstName,
+							    LastName = user.LastName,
+							    Login = user.Login
+						    }
+					    )
+					    .First();
+		        }
+		        catch (InvalidOperationException ex)
+		        {
+			        throw new ArgumentException("User not found.", "id", ex);
+		        }
+	        }
+        }
+
+        public void Update(IUser user)
+        {
+			if (user == null) throw new ArgumentNullException("user");
+			if (user.Id <= 0) throw new ArgumentException("User Id must be a positive integer.", "user");
+	        using (var context = CrmContextFactory.Current.CreateContext())
+	        {
+		        var dbUser = context.Users.Find(user.Id);
+		        if (dbUser == null) throw new ArgumentException("Trying to update non-existent user.", "user");
+
+		        dbUser.FirstName = user.FirstName;
+		        dbUser.LastName = user.LastName;
+		        dbUser.Login = user.Login;
+
+				context.SaveChanges();
+	        }
+        }
+
+        public void Delete(int id)
         {
             throw new NotImplementedException();
         }
 
-        public IUser GetUser(int userId)
-        {
-            throw new NotImplementedException();
-        }
+		public void SetPassword(int id, string password)
+		{
+			using (var context = CrmContextFactory.Current.CreateContext())
+			{
+				var dbUser = context.Users.Find(id);
+				if (dbUser == null) throw new ArgumentException("User not found.", "id");
+				dbUser.Password = password;
+				context.SaveChanges();
+			}
+		}
 
-        public IUser UpdateUser(IUser user)
-        {
-            throw new NotImplementedException();
-        }
+		public IEnumerable<IUser> GetAll()
+	    {
+		    using (var context = CrmContextFactory.Current.CreateContext())
+		    {
+			    return
+					context.Users.AsNoTracking()
+					.Select(
+						user => new DomainUser
+						{
+							Id = user.Id,
+							FirstName = user.FirstName,
+							LastName = user.LastName,
+							Login = user.Login
+						}
+					)
+					.ToList();
+		    }
+	    }
 
-        public void DeleteUser(int userId)
-        {
-            throw new NotImplementedException();
-        }
+		private class DomainUser : IUser
+		{
+			public int Id { get; set; }
+			public string FirstName { get; set; }
+			public string LastName { get; set; }
+			public string Login { get; set; }
+		}
     }
 }
