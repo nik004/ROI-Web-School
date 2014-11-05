@@ -1,9 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Crm.Data
+﻿namespace Crm.Data.Entities
 {
-    public enum PhoneNrType : byte
+	using System.ComponentModel.DataAnnotations;
+	using System.ComponentModel.DataAnnotations.Schema;
+
+	public enum PhoneNrType : byte
     {
         Other, Mobile, Home, Work
     }
@@ -14,9 +14,11 @@ namespace Crm.Data
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
+		[Required]
         public int ClientId { get; set; }
 
-        PhoneNrType Type { get; set; }
+		[Required]
+        public PhoneNrType PhoneType { get; set; }
 
         [Required, StringLength(32, MinimumLength = 1)]
         public string PhoneNr { get; set; }

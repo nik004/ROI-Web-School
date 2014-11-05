@@ -1,12 +1,16 @@
-﻿using System.Data.Entity;
-
-namespace Crm.Data
+﻿namespace Crm.Data
 {
-    public class CrmContext : DbContext
-    {
-        public DbSet<User> Users { get; set; }
-        public DbSet<Client> Clients { get; set; }
-        public DbSet<Contact> Contacts { get; set; }
-        public DbSet<Operation> Operations { get; set; }
-    }
+	using System.Data.Entity;
+	using Entities;
+
+	internal class CrmContext : DbContext, ICrmContext
+	{
+		public IDbSet<User> Users { get; set; }
+		public IDbSet<Client> Clients { get; set; }
+		public IDbSet<Contact> Contacts { get; set; }
+		public IDbSet<Operation> Operations { get; set; }
+
+		public CrmContext() { }
+		public CrmContext(string nameOrConnectionString) : base(nameOrConnectionString) { }
+	}
 }

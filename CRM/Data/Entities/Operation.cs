@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Crm.Data
+﻿namespace Crm.Data.Entities
 {
-    public enum OperationType : byte
+	using System;
+	using System.ComponentModel.DataAnnotations;
+	using System.ComponentModel.DataAnnotations.Schema;
+
+	public enum OperationType : byte
     {
         InitialCall, Callback, OfferRejected, OfferAccepted
     }
@@ -27,6 +23,7 @@ namespace Crm.Data
 
         public DateTime? Callback { get; set; }
 
+		[Column(TypeName = "money")]
         public decimal? Amount { get; set; }
 
         [Column(TypeName = "text")]

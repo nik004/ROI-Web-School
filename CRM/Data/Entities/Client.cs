@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Crm.Data
+﻿namespace Crm.Data.Entities
 {
-    [Table("Clients")]
+	using System;
+	using System.Collections.Generic;
+	using System.ComponentModel.DataAnnotations;
+	using System.ComponentModel.DataAnnotations.Schema;
+
+	[Table("Clients")]
     public class Client
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]

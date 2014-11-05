@@ -16,6 +16,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{AFCFD3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{40E67F9F-7949-4675-B7BD-4EFFA147D279}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Migrations", "Data.Migrations\Data.Migrations.csproj", "{229D306B-DE2E-407F-AF9C-FD6858930BD9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,10 @@ Global
 		{40E67F9F-7949-4675-B7BD-4EFFA147D279}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40E67F9F-7949-4675-B7BD-4EFFA147D279}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40E67F9F-7949-4675-B7BD-4EFFA147D279}.Release|Any CPU.Build.0 = Release|Any CPU
+		{229D306B-DE2E-407F-AF9C-FD6858930BD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{229D306B-DE2E-407F-AF9C-FD6858930BD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{229D306B-DE2E-407F-AF9C-FD6858930BD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{229D306B-DE2E-407F-AF9C-FD6858930BD9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
