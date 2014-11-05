@@ -6,11 +6,16 @@
 
 	public class UserListModel
 	{
-		public IEnumerable<UserModel> Users { get; private set; }
-
-		public UserListModel()
+		public IEnumerable<UserModel> Users
 		{
-			Users = ServiceFactory.Resolve<IUserService>().GetAll().Select(user => new UserModel(user));
+			get
+			{
+				return ServiceFactory.Resolve<IUserService>().GetAll().Select(user => new UserModel(user));
+			}
 		}
+
+		public int? DeleteId { get; set; }
+
+		public int? EditId { get; set; }
 	}
 }

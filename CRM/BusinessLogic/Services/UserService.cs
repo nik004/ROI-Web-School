@@ -9,7 +9,7 @@
 
 	using System.Collections.Generic;
 
-	[Service(ServiceOption.PerResolve)]
+	[Service(ServiceOption.Singleton)]
     internal class UserService : IUserService
     {
         public void Create(IUser user, string password)
@@ -74,10 +74,17 @@
 	        }
         }
 
-        public void Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
+		public void Delete(int id)
+		{
+			if (id <= 0) throw new ArgumentException("User Id must be a positive integer.", "id");
+			using (var context = CrmContextFactory.Current.CreateContext())
+			{
+				var dbUser = context.Users.Find(id);
+				if (dbUser == null) return;
+				context.Users.Remove(dbUser);
+				context.SaveChanges();
+			}
+		}
 
 		public void SetPassword(int id, string password)
 		{

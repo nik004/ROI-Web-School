@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace Crm.Admin.Controllers
+﻿namespace Crm.Admin.Controllers
 {
+	using System.Web.Mvc;
 	using Models;
 
 	public class HomeController : Controller
@@ -17,9 +12,25 @@ namespace Crm.Admin.Controllers
         }
 
 	    [HttpPost]
-	    public PartialViewResult UserList(UserListModel model)
+	    public ViewResult List(UserListModel model)
 	    {
-		    return PartialView(model.Users);
+		    if (ModelState.IsValid)
+		    {
+				if (model.DeleteId.HasValue)
+					UserModel.Delete(model.DeleteId.Value);
+		    }
+		    return View("Index", model);
 	    }
-    }
+
+	    [HttpPost]
+	    public PartialViewResult ListAjax(UserListModel model)
+	    {
+		    if (ModelState.IsValid)
+		    {
+			    if (model.DeleteId.HasValue)
+					UserModel.Delete(model.DeleteId.Value);
+		    }
+		    return PartialView("UserList", model);
+	    }
+	}
 }
