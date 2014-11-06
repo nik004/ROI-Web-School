@@ -3,7 +3,7 @@
     <legend>Login Info</legend>
     @Html.LabelFor(model => model.Login) @Html.EditorFor(model => model.Login)
     <fieldset>
-        <legend>Password</legend>
+        <legend>@Html.LabelFor(model => model.Password)</legend>
         @Html.LabelFor(model => model.Password1) @Html.EditorFor(model => model.Password2)
     </fieldset>
 </fieldset>

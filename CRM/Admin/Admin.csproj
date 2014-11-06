@@ -116,11 +116,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\EnumerableHelpers.cs" />
+    <Compile Include="Models\NewPasswordModel.cs" />
     <Compile Include="Models\NewUserModel.cs" />
     <Compile Include="Models\UserListModel.cs" />
     <Compile Include="Models\UserModel.cs" />
@@ -146,7 +147,10 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\Shared\EditorTemplates\NewUserModel.cshtml" />
-    <Content Include="Views\Home\Add.cshtml" />
+    <Content Include="Views\User\Add.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\UserModel.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\NewPasswordModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -159,6 +163,10 @@
       <Project>{65267a9f-a1ef-44cb-bb99-c36b2c914fc2}</Project>
       <Name>BusinessLogic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{8a75c983-66d1-4531-ac14-f5a93425680c}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\_ViewStart.cshtml" />
@@ -167,10 +175,10 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\User\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\UserList.cshtml" />
+    <Content Include="Views\User\UserList.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

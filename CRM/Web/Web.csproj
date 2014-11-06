@@ -152,6 +152,10 @@
       <Project>{65267a9f-a1ef-44cb-bb99-c36b2c914fc2}</Project>
       <Name>BusinessLogic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{8a75c983-66d1-4531-ac14-f5a93425680c}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_Layout.cshtml" />
