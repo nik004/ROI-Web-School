@@ -1,5 +1,6 @@
 ﻿namespace Crm.Admin.Controllers
 {
+    using System;
 	using System.Web.Mvc;
 	using Models;
 
@@ -32,5 +33,30 @@
 		    }
 		    return PartialView("UserList", model);
 	    }
+
+        [HttpGet]
+        public ActionResult Add()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Add(NewUserModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            try
+            {
+                model.Save();
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, ex);
+                return View(model);
+            }
+
+            return RedirectToAction("Index");
+        }
 	}
 }

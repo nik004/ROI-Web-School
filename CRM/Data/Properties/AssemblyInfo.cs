@@ -25,3 +25,6 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
 [assembly: InternalsVisibleTo("CRM.Data.Migrations")]
+
+[assembly: TypeForwardedTo(typeof(System.Data.Entity.Infrastructure.SqlConnectionFactory))]
+[assembly: TypeForwardedTo(typeof(System.Data.Entity.SqlServer.SqlProviderServices))]

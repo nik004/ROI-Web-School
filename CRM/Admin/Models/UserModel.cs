@@ -30,8 +30,7 @@
 
 		public void Delete()
 		{
-			if (Id != 0)
-				ServiceFactory.Resolve<IUserService>().Delete(Id);
+			ServiceFactory.Resolve<IUserService>().Delete(Id);
 		}
 
 		public static void Delete(int id)

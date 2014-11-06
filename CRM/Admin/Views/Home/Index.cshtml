@@ -1,5 +1,4 @@
-﻿@using System.Web.Optimization
-@model Crm.Admin.Models.UserListModel
+﻿@model Crm.Admin.Models.UserListModel
 @{
     ViewBag.Title = "CRM Admin";
 }
@@ -20,6 +19,7 @@
     }
 ))
 {
+    <a href="@Url.Action("Index", "Home", new { id = 5 })">Go Home</a>
     <div id="user-list">
         @Html.Partial("UserList", Model)
     </div>

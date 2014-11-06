@@ -7,7 +7,7 @@ namespace Crm
 {
     public static class ServiceFactory
     {
-        private static Dictionary<Type, Func<object>> _typeMap = new Dictionary<Type, Func<object>>();
+        private static readonly Dictionary<Type, Func<object>> _typeMap = new Dictionary<Type, Func<object>>();
 
         public static void Register<T>(Func<T> instanceFactory)
         {

@@ -14,7 +14,7 @@
     {
         public void Create(IUser user, string password)
         {
-	        using (var context = CrmContextFactory.Current.CreateContext())
+	        using (var context = CrmContextFactory.Get())
 	        {
 		        context.Users.Add(
 			        new User
@@ -32,7 +32,7 @@
 
         public IUser Read(int id)
         {
-	        using (var context = CrmContextFactory.Current.CreateContext())
+	        using (var context = CrmContextFactory.Get())
 	        {
 		        try
 		        {
@@ -61,7 +61,7 @@
         {
 			if (user == null) throw new ArgumentNullException("user");
 			if (user.Id <= 0) throw new ArgumentException("User Id must be a positive integer.", "user");
-	        using (var context = CrmContextFactory.Current.CreateContext())
+	        using (var context = CrmContextFactory.Get())
 	        {
 		        var dbUser = context.Users.Find(user.Id);
 		        if (dbUser == null) throw new ArgumentException("Trying to update non-existent user.", "user");
@@ -77,7 +77,7 @@
 		public void Delete(int id)
 		{
 			if (id <= 0) throw new ArgumentException("User Id must be a positive integer.", "id");
-			using (var context = CrmContextFactory.Current.CreateContext())
+			using (var context = CrmContextFactory.Get())
 			{
 				var dbUser = context.Users.Find(id);
 				if (dbUser == null) return;
@@ -88,7 +88,7 @@
 
 		public void SetPassword(int id, string password)
 		{
-			using (var context = CrmContextFactory.Current.CreateContext())
+			using (var context = CrmContextFactory.Get())
 			{
 				var dbUser = context.Users.Find(id);
 				if (dbUser == null) throw new ArgumentException("User not found.", "id");
@@ -99,7 +99,7 @@
 
 		public IEnumerable<IUser> GetAll()
 	    {
-		    using (var context = CrmContextFactory.Current.CreateContext())
+		    using (var context = CrmContextFactory.Get())
 		    {
 			    return
 					context.Users.AsNoTracking()

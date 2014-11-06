@@ -1,8 +1,9 @@
 ﻿namespace Crm.Admin.Models
 {
-	using System.Collections.Generic;
-	using System.Linq;
-	using Domain;
+    using Domain;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.Linq;
 
 	public class UserListModel
 	{
