@@ -52,6 +52,10 @@
     <Compile Include="Migrations\201411050840587_InitialCreate.Designer.cs">
       <DependentUpon>201411050840587_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201411111354458_HashedPasswords.cs" />
+    <Compile Include="Migrations\201411111354458_HashedPasswords.Designer.cs">
+      <DependentUpon>201411111354458_HashedPasswords.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -68,6 +72,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201411050840587_InitialCreate.resx">
       <DependentUpon>201411050840587_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201411111354458_HashedPasswords.resx">
+      <DependentUpon>201411111354458_HashedPasswords.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

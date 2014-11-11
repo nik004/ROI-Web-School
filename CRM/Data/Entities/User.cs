@@ -2,6 +2,7 @@
 {
 	using System.ComponentModel.DataAnnotations;
 	using System.ComponentModel.DataAnnotations.Schema;
+	using System.Diagnostics;
 
 	[Table("Users")]
     public class User
@@ -9,16 +10,26 @@
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [Required, StringLength(64, MinimumLength = 1)]
+        [StringLength(64)]
         public string FirstName { get; set; }
 
-        [Required, StringLength(128, MinimumLength = 1)]
+        [StringLength(128)]
         public string LastName { get; set; }
 
-        [Required, StringLength(64, MinimumLength = 1)]
+        [Required, StringLength(64)]
         public string Login { get; set; }
 
-        [StringLength(16)]
-        public string Password { get; set; }
+		[MinLength(20), MaxLength(20)]
+		public byte[] Hash
+		{
+			get { return _password; }
+			set
+			{
+				Debug.Assert(value == null || value.Length == 20);
+				_password = value;
+			}
+		}
+
+		private byte[] _password;
     }
 }
