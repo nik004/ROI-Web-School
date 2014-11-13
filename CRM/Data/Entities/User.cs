@@ -5,8 +5,8 @@
 	using System.Diagnostics;
 	using Domain;
 
-	[ComplexType, MetadataType(typeof(Domain.Metadata.PasswordHash))]
-	public class Password : IPasswordHash
+	[ComplexType, MetadataType(typeof(Domain.Metadata.UserPasswordHash))]
+	public class Password : IUserPasswordHash
 	{
 		private byte[] _hash;
 

@@ -3,7 +3,9 @@
 <head>
     <title>@ViewBag.Title</title>
     @RenderSection("header", required: false)
+    @Styles.Render("~/bundles/site")
     @RenderSection("styles", required: false)
+    @Scripts.Render("~/bundles/jquery", "~/bundles/jqueryval")
     @RenderSection("scripts", required: false)
 </head>
 <body>

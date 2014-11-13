@@ -21,6 +21,11 @@
                 new ScriptBundle("~/bundles/jqueryajax")
                 .Include("~/Scripts/jquery.unobtrusive-ajax.js")
             );
+
+			bundles.Add(
+				new StyleBundle("~/bundles/site")
+				.Include("~/Styles/Site.css")
+			);
 		}
 	}
 }

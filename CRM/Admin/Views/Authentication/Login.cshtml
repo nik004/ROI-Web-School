@@ -1,17 +1,25 @@
-﻿@model Crm.Admin.Models.LoginModel
+﻿@using Crm.Admin.Views.Authentication
+@model Crm.Admin.Models.LoginModel
 @{
     Layout = null;
 }
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Login</title>
-</head>
-<body>
-<form action="@Request.Url.PathAndQuery" method="POST">
-    @Html.EditorForModel()
-    <div class="button-pane"><button type="submit">Login</button></div>
-    <div class="message-pane">@Html.ValidationMessage(string.Empty)</div>
-</form>
-</body>
+    <head>
+        <title>@Localization.LoginTitle</title>
+        <link rel="stylesheet" type="text/css" href="@Url.Content("~/Styles/Login.css")" />
+        @Scripts.Render("~/bundles/jquery", "~/bundles/jqueryval")
+    </head>
+    <body>
+        <div id="login">
+            <div class="login-frame">
+                <h1>@Localization.LoginHeader</h1>
+                <form action="@Request.Url.PathAndQuery" method="post">
+                    @Html.EditorForModel()
+                    <div class="button-pane"><button type="submit">@Localization.Login</button></div>
+                    <div class="message-pane">@Html.ValidationMessage(string.Empty)</div>
+                </form>
+            </div>
+        </div>
+    </body>
 </html>

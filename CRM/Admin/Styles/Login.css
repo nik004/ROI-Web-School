@@ -1,0 +1,50 @@
+﻿html {
+    min-height: 100%;
+    position: relative;
+}
+
+body {
+    font: normal 14px arial, verdana, sans-serif;
+    background: lightgray;
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+#login {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    vertical-align: middle;
+}
+
+div.login-frame {
+    text-align: left;
+    border: 3px solid gray;
+    border-radius: 2ex;
+    box-shadow: 10px 10px 10px gray;
+    background: white;
+    margin: auto;
+}
+
+.login-frame h1 {
+    font-size: inherit;
+    border-radius: 2ex 2ex 0 0;
+    background: gray;
+    color: white;
+    padding: 1ex 2ex;
+    margin: 0;
+}
+
+.editor-label {
+    display: inline;
+}
+
+.editor-field {
+    display: inline;
+    flex-wrap: wrap;
+}

@@ -5,7 +5,12 @@
         string Login { get; }
 	}
 
-	public interface IPasswordHash
+	public interface IUserPassword
+	{
+		string Password { get; }
+	}
+
+	public interface IUserPasswordHash
 	{
 		byte[] Hash { get; }
 	}
