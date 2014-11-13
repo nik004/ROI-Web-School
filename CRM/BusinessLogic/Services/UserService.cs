@@ -31,7 +31,7 @@
 				        FirstName = user.FirstName,
 				        LastName = user.LastName,
 				        Login = user.Login,
-				        Hash = GetPasswordHash(password)
+						Password = { Hash = GetPasswordHash(password) }
 			        }
 			    );
 
@@ -101,7 +101,7 @@
 			{
 				var dbUser = context.Users.Find(id);
 				if (dbUser == null) throw new ArgumentException("User not found.", "id");
-				dbUser.Hash = GetPasswordHash(password);
+				dbUser.Password.Hash = GetPasswordHash(password);
 				context.SaveChanges();
 			}
 		}
@@ -115,7 +115,7 @@
 				return context.Users
 					.Where(user =>
 						login.Equals(user.Login, StringComparison.InvariantCultureIgnoreCase)
-						&& Equals(user.Hash, hash)
+						&& Equals(user.Password.Hash, hash)
 					)
 					.Select(user =>
 						new DomainUser {Id = user.Id, Login = user.Login, FirstName = user.FirstName, LastName = user.LastName}

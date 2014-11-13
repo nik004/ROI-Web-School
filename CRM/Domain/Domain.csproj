@@ -36,6 +36,7 @@
   <ItemGroup>
     <Compile Include="IUser.cs" />
     <Compile Include="IUserService.cs" />
+    <Compile Include="Metadata\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

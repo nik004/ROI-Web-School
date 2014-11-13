@@ -11,9 +11,8 @@
 
 			routes.MapRoute(
 				name: "Authentication",
-				url: "login/{*queryString}",
-				defaults: new { controller = "Authentication", action = "Login" },
-				constraints: new { queryString = @"^(?:\?.*)?$" }
+				url: "login",
+				defaults: new { controller = "Authentication", action = "Login" }
 			);
 
 			routes.MapRoute(
