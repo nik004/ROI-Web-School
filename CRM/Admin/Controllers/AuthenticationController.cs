@@ -6,17 +6,14 @@
 
 	public class AuthenticationController : Controller
     {
-        //
-        // GET: /Authentication/
-
 		[HttpGet]
-        public ActionResult Login()
+        public ActionResult Login(string returnUrl)
         {
-            return View(new LoginModel());
+            return View(new AuthenticationModel { ReturnUrl = returnUrl ?? string.Empty });
         }
 
-	    [HttpPost]
-	    public ActionResult Login(LoginModel model)
+	    [HttpPost, ValidateAntiForgeryToken]
+	    public ActionResult Login(AuthenticationModel model)
 	    {
 		    if (!ModelState.IsValid)
 			    return View(model);
@@ -24,11 +21,11 @@
 			var user = model.Logon();
 		    if (user != null)
 		    {
-			    FormsAuthentication.RedirectFromLoginPage(user.Login, model.Remember);
-			    return null;
+				FormsAuthentication.SetAuthCookie(user.Login, model.Remember);
+			    return Redirect(string.IsNullOrEmpty(model.ReturnUrl) ? FormsAuthentication.DefaultUrl : model.ReturnUrl);
 		    }
 
-		    ModelState.AddModelError(string.Empty, "Invalid login or password.");
+		    ModelState.AddModelError("Key", "Invalid login or password.");
 		    return View(model);
 	    }
     }

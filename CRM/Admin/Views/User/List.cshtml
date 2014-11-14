@@ -4,7 +4,6 @@
 }
 @section scripts
 {
-    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryajax")
 }
 <h1>@ViewBag.Title</h1>
@@ -19,8 +18,6 @@
     }
 ))
 {
-    <a href="@Url.Action("Index", "Home", new { id = 5 })">Go Home</a>
-    <div id="user-list">
-        @Html.Partial("UserList", Model)
-    </div>
+    <div id="user-list">@Html.Partial("UserList", Model)</div>
+    @Html.ActionLink("Add New User", "Add", "User")
 }

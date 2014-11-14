@@ -3,10 +3,13 @@
     ViewBag.Title = "Add New User";
 }
 <h2>@ViewBag.Title</h2>
-@using (Html.BeginForm("Add", "Home"))
+@using (Html.BeginForm("Add", "User"))
 {
-    <div>
-        @Html.EditorForModel()
-    </div>
+    @Html.AntiForgeryToken()
+    @Html.EditorForModel()
     <button type="submit">Create</button>
+    if(!string.IsNullOrEmpty(Model.CancelUrl))
+    {
+        <a href="@Model.CancelUrl">Cancel</a>
+    }
 }

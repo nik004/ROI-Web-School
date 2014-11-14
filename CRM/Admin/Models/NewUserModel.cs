@@ -1,23 +1,34 @@
 ﻿namespace Crm.Admin.Models
 {
+	using System;
+	using System.ComponentModel.DataAnnotations;
 	using Domain;
-    using System.ComponentModel.DataAnnotations;
 
+	[MetadataType(typeof(Domain.Metadata.User))]
 	public class NewUserModel : IUser
 	{
-		int IUser.Id { get { return 0; } }
+		private readonly NewPasswordModel _password = new NewPasswordModel();
+
+		public string CancelUrl { get; set; }
+
+		public int Id
+		{
+			get { return 0; }
+			set { throw new NotSupportedException(); }
+		}
+
 		public string FirstName { get; set; }
 		public string LastName { get; set; }
 		public string Login { get; set; }
 
-		private NewPasswordModel _password;
-
-		[Display(Name = "Password")]
-		public NewPasswordModel Password { get { return _password; } }
+		public NewPasswordModel Password
+		{
+			get { return _password; }
+		}
 
         public void Save()
 		{
-			ServiceFactory.Resolve<IUserService>().Create(this, Password.Password);
+			ServiceFactory.Resolve<IUserService>().Create(this, Password);
 		}
 	}
 }

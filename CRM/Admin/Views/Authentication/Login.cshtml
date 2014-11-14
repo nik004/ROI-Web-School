@@ -1,24 +1,25 @@
 ﻿@using Crm.Admin.Views.Authentication
-@model Crm.Admin.Models.LoginModel
-@{
-    Layout = null;
-}
+@model Crm.Admin.Models.AuthenticationModel
+@{ Layout = null; }
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>@Localization.LoginTitle</title>
-        <link rel="stylesheet" type="text/css" href="@Url.Content("~/Styles/Login.css")" />
-        @Scripts.Render("~/bundles/jquery", "~/bundles/jqueryval")
-    </head>
+<head>
+    <title>@Localization.LoginTitle</title>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Styles/Login.css")" />
+    @Scripts.Render("~/bundles/jquery", "~/bundles/jqueryval")
+</head>
     <body>
-        <div id="login">
-            <div class="login-frame">
+        <div>
+            <div id="login">
                 <h1>@Localization.LoginHeader</h1>
-                <form action="@Request.Url.PathAndQuery" method="post">
+                @using (Html.BeginForm("Login", "Authentication"))
+                {
+                    @Html.AntiForgeryToken()
                     @Html.EditorForModel()
-                    <div class="button-pane"><button type="submit">@Localization.Login</button></div>
-                    <div class="message-pane">@Html.ValidationMessage(string.Empty)</div>
-                </form>
+                    <div class="button-pane">
+                        <button type="submit">@Localization.Login</button>
+                    </div>
+                }
             </div>
         </div>
     </body>

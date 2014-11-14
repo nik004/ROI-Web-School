@@ -122,7 +122,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\EnumerableHelpers.cs" />
-    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\AuthenticationModel.cs" />
+    <Compile Include="Models\UserCredentialsModel.cs" />
     <Compile Include="Models\NewPasswordModel.cs" />
     <Compile Include="Models\NewUserModel.cs" />
     <Compile Include="Models\UserListModel.cs" />
@@ -167,6 +168,8 @@
     <Content Include="Views\Shared\EditorTemplates\NewPasswordModel.cshtml" />
     <Content Include="Views\Authentication\Login.cshtml" />
     <Content Include="Scripts\jquery-2.1.1.min.map" />
+    <Content Include="Views\Shared\EditorTemplates\AuthenticationModel.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\LoginModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

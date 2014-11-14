@@ -3,12 +3,14 @@
 	using System.ComponentModel.DataAnnotations;
 	using Domain;
 
-	public class LoginModel
+	[MetadataType(typeof(Domain.Metadata.UserLogin))]
+	public class AuthenticationModel : IUserLogin
 	{
-		[Required]
+		[StringLength(512)]
+		public string ReturnUrl { get; set; }
+
 		public string Login { get; set; }
 
-		[DataType(DataType.Password)]
 		public string Password { get; set; }
 
 		public bool Remember { get; set; }

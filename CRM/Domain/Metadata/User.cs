@@ -8,12 +8,6 @@
 		public abstract string Login { get; }
 	}
 
-	public abstract class UserPassword : IUserPassword
-	{
-		[StringLength(20), DataType(DataType.Password)]
-		public abstract string Password { get; }
-	}
-
 	public abstract class UserPasswordHash : IUserPasswordHash
 	{
 		[MinLength(20), MaxLength(20)]

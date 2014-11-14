@@ -1,10 +1,11 @@
-﻿@model Crm.Admin.Models.NewUserModel
+﻿@using Crm.Admin.Models
+@model NewUserModel
 <fieldset>
     <legend>Login Info</legend>
     @Html.LabelFor(model => model.Login) @Html.EditorFor(model => model.Login)
     <fieldset>
         <legend>@Html.LabelFor(model => model.Password)</legend>
-        @Html.LabelFor(model => model.Password1) @Html.EditorFor(model => model.Password2)
+        @Html.EditorFor(model => model.Password)
     </fieldset>
 </fieldset>
 <fieldset>
