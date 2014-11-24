@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="fiveInARow.css" />
+		<script src="fiveInARow.js"></script>
+	</head>
+	
+	<body>
+		<div id="gameMenu">
+			<h3>Five in a row</h3>
+			<div>
+				Time: <input id="timeout" value="1" /> (minutes)
+			</div>
+			<div>
+				<button id="startGame">Start game!</button>
+			</div>
+		</div>
+		
+		<div id="game" class="hidden">
+			<div id="header">
+				<div class="player x">
+					<span class="icon"></span>
+					<span class="time"></span>
+				</div>
+				<div class="player o">
+					<span class="time"></span>
+					<span class="icon"></span>
+				</div>
+			</div>
+			<div id="field"></div>
+		</div>
+	</body>
+</html>

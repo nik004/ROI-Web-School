@@ -1,0 +1,62 @@
+#game {
+	display: inline-block;
+}
+
+#field {
+	display: inline-block;
+	border: 1px solid black;
+}
+
+#game.hidden, #gameMenu.hidden {
+	display: none;
+}
+
+.row {
+	height: 17px;
+}
+
+.cell {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	border-bottom: #DDDDDD solid 1px;
+	border-left:   #DDDDDD solid 1px;
+}
+
+.cell:hover {
+	background-color: #DDDDFF
+}
+
+.cell:first-child {
+	border-left:   0px;
+}
+
+.row:last-child .cell {
+	border-bottom: 0px;
+}
+
+.player {
+	display: inline-block;
+}
+
+.player .icon {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+}
+
+.player.o {
+	float:right;
+}
+
+.player.active {
+	font-weight: bolder;
+}
+
+.cell.x, .player.x > .icon {
+	background-image: url(x.gif);
+}
+
+.cell.o, .player.o > .icon {
+	background-image: url(o.gif);
+}
