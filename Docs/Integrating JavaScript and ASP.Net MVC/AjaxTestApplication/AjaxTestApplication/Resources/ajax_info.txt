@@ -1,0 +1,6 @@
+<p>AJAX is <b>A</b>synchronous <b>J</b>avaScript <b>A</b>nd <b>X</b>ML</p>
+<p>AJAX is not a language</p>
+<p>AJAX is not a technology</p>
+<p>AJAX is coined by Jesse James Garret </p>
+<p>AJAX is a group of Web development techniques used on the client-side to create asynchronous Web applications</p>
+

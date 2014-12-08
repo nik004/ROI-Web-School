@@ -1,0 +1,7 @@
+﻿@model AjaxTestApplication.Business.Entities.Comment
+@Html.HiddenFor(c=>c.SessionId)
+<div>
+    @Html.LabelFor(c=>c.Message)
+    @Html.EditorFor(c=>c.Message)
+</div>
+<button type="submit">Add comment</button>

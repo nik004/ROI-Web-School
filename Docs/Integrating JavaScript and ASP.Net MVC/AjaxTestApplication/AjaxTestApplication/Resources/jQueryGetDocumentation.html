@@ -1,0 +1,125 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="jQuery Foundation - jquery.org">
+    <meta name="description" content="jQuery: The Write Less, Do More, JavaScript Library">
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="http://api.jquery.com/jquery-wp-content/themes/api.jquery.com/i/favicon.ico">
+    <link rel="stylesheet" href="http://api.jquery.com/jquery-wp-content/themes/jquery/css/base.css?v=1">
+    <link rel="stylesheet" href="http://api.jquery.com/jquery-wp-content/themes/api.jquery.com/style.css">
+    <script>window.jQuery || document.write(unescape('%3Cscript src="//api.jquery.com/jquery-wp-content/themes/jquery/js/jquery-1.9.1.min.js"%3E%3C/script%3E'))</script>
+   
+    <style type="text/css">
+        .tk-source-code-pro {
+            font-family: "source-code-pro",sans-serif;
+        }
+
+        .tk-klavika-web {
+            font-family: "klavika-web",sans-serif;
+        }
+    </style>
+    <link rel="stylesheet" href="http://use.typekit.net/c/29b1ce/1w;klavika-web,2,PYh:F:i7,PYg:F:n7;source-code-pro,2,Y1M:F:n4,Y1P:F:n7/d?3bb2a6e53c9684ffdc9a98f2135b2a6250f2340d8ca0853b7df9676f5fa610fe069f9d29c9b5e67ae7b6312a16ff95d3a73356eed53502d6630d88cb0fe9789e0ac2d9a6c14ac282069f97be80efceecd4f5e0e58b889e8649ff22efc0c4063e9f9f87c7a8920dcab32add3496e6b09e6a94141aaaeb81a4bb1d4a09b8a14ac46d7d0dff3bf6532c044b0313c5ed1d7226c76cac5039645b4082ff59a8953c4e06ef9a344cf9265e8de3ed48ac2f34b281583cbaf6f2f580f7709eba9ea284dc14f4722ed0e264d7faa135466fbba043f093297f0efc92bfcb7b3eb8761407436be31d8029117f1a72aa7b8b6319c956c739e194567c906c75">
+    <script>try { Typekit.load(); } catch (e) { }</script>
+    <meta name="generator" content="WordPress 4.0">
+</head>
+    <div class="entry-content">
+        <article id="jQuery-get1" class="entry method">
+            <h2 class="section-title">
+                <span class="name">jQuery.get( url [, data ] [, success ] [, dataType ] )</span><span class="returns">Returns: <a href="http://api.jquery.com/Types/#jqXHR">jqXHR</a></span>
+            </h2>
+            <div class="entry-wrapper">
+                <p class="desc"><strong>Description: </strong>Load data from the server using a HTTP GET request.</p>
+                <ul class="signatures">
+                    <li class="signature">
+                        <h4>
+                            <span>version added: jQuery.get( url [, data ] [, success ] [, dataType ] )</span>
+                        </h4>
+                        <ul>
+                            <li>
+                                <div><strong>url</strong></div>
+                                <div>
+                                    Type: <a href="http://api.jquery.com/Types/#String">String</a>
+                                </div>
+                                <div>A string containing the URL to which the request is sent.</div>
+                            </li>
+                            <li>
+                                <div><strong>data</strong></div>
+                                <div>
+                                    Type: <a href="http://api.jquery.com/Types/#PlainObject">PlainObject</a> or <a href="http://api.jquery.com/Types/#String">String</a>
+                                </div>
+                                <div>A plain object or string that is sent to the server with the request.</div>
+                            </li>
+                            <li>
+                                <div><strong>success</strong></div>
+                                <div>Type: <a href="http://api.jquery.com/Types/#Function">Function</a>( <a href="http://api.jquery.com/Types/#PlainObject">PlainObject</a> data, <a href="http://api.jquery.com/Types/#String">String</a> textStatus, <a href="http://api.jquery.com/Types/#jqXHR">jqXHR</a> jqXHR )</div>
+                                <div>A callback function that is executed if the request succeeds.</div>
+                            </li>
+                            <li>
+                                <div><strong>dataType</strong></div>
+                                <div>
+                                    Type: <a href="http://api.jquery.com/Types/#String">String</a>
+                                </div>
+                                <div>The type of data expected from the server. Default: Intelligent Guess (xml, json, script, or html).</div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="longdesc" id="entry-longdesc">
+                    <p>This is a shorthand Ajax function, which is equivalent to:</p>
+                    <div class="syntaxhighlighter javascript nogutter">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td class="gutter">
+
+                                        <div class="line n1">1</div>
+
+                                        <div class="line n2">2</div>
+
+                                        <div class="line n3">3</div>
+
+                                        <div class="line n4">4</div>
+
+                                        <div class="line n5">5</div>
+
+                                        <div class="line n6">6</div>
+
+                                    </td>
+                                    <td class="code">
+                                        <pre><div class="container"><div class="line"><code>$.ajax({</code></div></div><div class="container"><div class="line"><code>  url: url,</code></div></div><div class="container"><div class="line"><code>  data: data,</code></div></div><div class="container"><div class="line"><code>  success: success,</code></div></div><div class="container"><div class="line"><code>  dataType: dataType</code></div></div><div class="container"><div class="line"><code>});</code></div></div></pre>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>The <code>success</code> callback function is passed the returned data, which will be an XML root element, text string, JavaScript file, or JSON object, depending on the MIME type of the response. It is also passed the text status of the response. </p>
+                    <p><strong>As of jQuery 1.5</strong>, the <code>success</code> callback function is also passed a <a href="http://api.jquery.com/jQuery.get/#jqxhr-object">"jqXHR" object</a> (in <strong>jQuery 1.4</strong>, it was passed the <code>XMLHttpRequest</code> object). However, since JSONP and cross-domain GET requests do not use <abbr title="XMLHTTPRequest">XHR</abbr>,  in those cases the <code>jqXHR</code> and <code>textStatus</code> parameters passed to the success callback are undefined.</p>
+                    <p>Most implementations will specify a success handler:</p>
+                    <div class="syntaxhighlighter javascript nogutter">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td class="gutter">
+
+                                        <div class="line n1">1</div>
+
+                                        <div class="line n2">2</div>
+
+                                        <div class="line n3">3</div>
+
+                                        <div class="line n4">4</div>
+
+                                    </td>
+                                    <td class="code">
+                                        <pre><div class="container"><div class="line"><code>$.get( <span class="string">"ajax/test.html"</span>, <span class="keyword">function</span>( data ) {</code></div></div><div class="container"><div class="line"><code>  $( <span class="string">".result"</span> ).html( data );</code></div></div><div class="container"><div class="line"><code>  alert( <span class="string">"Load was performed."</span> );</code></div></div><div class="container"><div class="line"><code>});</code></div></div></pre>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+</html>

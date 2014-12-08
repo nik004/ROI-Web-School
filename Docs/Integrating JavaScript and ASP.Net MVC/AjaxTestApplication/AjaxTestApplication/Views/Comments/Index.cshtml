@@ -1,0 +1,16 @@
+﻿@using System.Web.Optimization
+@model AjaxTestApplication.Business.Entities.Session
+
+@{
+    ViewBag.Title = "Comments";
+}
+
+@Scripts.Render("~/Scripts/jquery")
+@Scripts.Render("~/Scripts/jquery.unobtrusive")
+
+<div id="session">
+    <h3>
+        @Model.SessionName
+    </h3>
+</div>
+@Html.Action("_GetForSession", "Comments", new { sessionId = @Model.SessionId })

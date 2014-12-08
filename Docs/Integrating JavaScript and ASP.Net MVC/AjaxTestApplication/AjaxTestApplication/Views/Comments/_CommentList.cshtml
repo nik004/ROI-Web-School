@@ -1,0 +1,13 @@
+﻿@model AjaxTestApplication.Models.CommentsViewModel
+<div id="comments">
+    <ul>
+        @foreach (var comment in Model.Items)
+        {
+            <li>@comment.DateTime: @comment.Message</li>
+        }
+        @using (Ajax.BeginForm("_AddComment", "Comments", new AjaxOptions{UpdateTargetId = "comments"}))
+        {
+            @Html.Action("_CommentForm", new { sessionId = ViewBag.SessionId })
+        }
+    </ul>
+</div>
