@@ -1,0 +1,7 @@
+.required:after {
+	content:" *";
+}
+
+.invalid input {
+	background-color:#FFCCCC;
+}
