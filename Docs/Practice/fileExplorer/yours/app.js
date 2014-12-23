@@ -66,8 +66,8 @@ $(function() {
 				}
 
 				self.removeClass("loading");
-				//var b = self(".expander glyphicon glyphicon-plus");
-				//if (b.lengt > 0) { b.toggleClass("glyphicon-minus") };
+				var b = self.children(".expander.glyphicon.glyphicon-plus");
+				{ b.toggleClass("glyphicon-minus") };
 				children.slideDown();
 			});
 		});
@@ -134,8 +134,8 @@ function EventForFolder(_CurrentFolder, _self) {
 
         self.removeClass("loading");
 
-        //var b = self(".expander glyphicon glyphicon-plus");
-        //if (b.length > 0) { b.toggleClass("glyphicon-minus") };
+        var b = self.children(".expander.glyphicon.glyphicon-plus");
+        { b.toggleClass("glyphicon-minus") };
         children.slideDown();
     });
 }
