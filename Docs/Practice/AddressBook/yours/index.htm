@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <link rel="stylesheet" href="metro/metro-bootstrap.min.css">
+        <link rel="stylesheet" href="metro/metro-bootstrap-responsive.min.css">
+        <link rel="stylesheet" href="metro/iconFont.min.css">
+        <script src="jquery.min.js"></script>
+        <script src="jquery.widget.min.js"></script>
+		<script src="metro/metro.min.js"></script>
+		<script src="chance.js"></script>
+		<script src="data.js"></script>
+		<script src="knockout-3.2.0.debug.js"></script>
+		<script src="knockout.mapping-latest.debug.js"></script>
+		<script src="app.js"></script>
+	</head>
+	<body class="metro">
+		<div class="container">
+			<div></div>
+		</div>
+		<div style="height: 100%;" class="bg-darkBlue">
+			<div>
+				<div class="tile-area tile-area-darkBlue">
+					<h1 class="tile-area-title fg-white">
+						Contacts
+						<button class="large">Add</button>
+						<button data-bind="enable: hasSelectedContacts" class="large">Remove</button>
+					</h1>
+					
+					<div class="tile-group quadro">
+						<div class="tile-group-title">Colleagues</div>
+
+						<!-- ko foreach: contacts -->
+						<div data-bind="css: { selected: isSelected }, click: toggleSelected" class="tile bg-lime" data-click="transform">
+							<div class="tile-content">
+								<div class="padding10">
+									<p data-bind="text: name" class="tertiary-text fg-white no-margin"></p>
+								</div>
+							</div>
+							<div class="tile-status" >
+								<div data-bind="text: phone" class="label"></div>
+							</div>
+						</div>
+						<!-- /ko -->
+						
+					</div>
+										
+				</div>
+			</div>
+		</div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <link rel="stylesheet" href="metro/metro-bootstrap.min.css">
+        <link rel="stylesheet" href="metro/metro-bootstrap-responsive.min.css">
+        <link rel="stylesheet" href="metro/iconFont.min.css">
+        <script src="jquery.min.js"></script>
+        <script src="jquery.widget.min.js"></script>
+		<script src="metro/metro.min.js"></script>
+		<script src="chance.js"></script>
+		<script src="data.js"></script>
+		<script src="knockout-3.2.0.debug.js"></script>
+		<script src="knockout.mapping-latest.debug.js"></script>
+		<script src="app.js"></script>
+	</head>
+	<body class="metro">
+		<div class="container">
+			<div data-class="a">
+				<form>
+					<fieldset>
+						<legend>Add new contact</legend>
+						
+						<label>Name</label>
+						<div class="input-control text" data-role="input-control">
+							<input data-class="b" type="text">
+							<button class="btn-clear" tabindex="-1" type="button"></button>
+						</div>
+						
+						<label>Last name</label>
+						<div class="input-control text" data-role="input-control">
+							<input data-class="c" type="text" placeholder="optional">
+							<button class="btn-clear" tabindex="-1" type="button"></button>
+						</div>
+
+						<label>Category</label>
+						<div class="input-control text" data-role="input-control">
+							<input data-class="d" type="text">
+							<button class="btn-clear" tabindex="-1" type="button"></button>
+						</div>
+						
+						<label>Phone number</label>
+						<div class="input-control text" data-role="input-control">
+							<input data-class="e" type="text">
+							<button class="btn-clear" tabindex="-1" type="button"></button>
+						</div>
+						
+						<label>Contry</label>
+						<div class="input-control text" data-role="input-control">
+							<input data-class="f" type="text" placeholder="optional">
+							<button class="btn-clear" tabindex="-1" type="button"></button>
+						</div>
+						
+						<label>City</label>
+						<div class="input-control text" data-role="input-control">
+							<input data-class="g" type="text" placeholder="optional">
+							<button class="btn-clear" tabindex="-1" type="button"></button>
+						</div>
+						
+						<button data-class="h">Save</button>
+						<button data-class="i">Cancel</button>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+		<div style="display:none; height:100%;" class="bg-darkGreen"
+			data-class="j">
+			<div>
+				<div class="tile-area tile-area-darkGreen">
+					<h1 class="tile-area-title fg-white">
+						Contacts
+						<button class="large"
+							data-class="k">Add</button>
+						<button class="large"
+							data-class="l">Remove</button>
+					</h1>
+					<!-- ko foreach: contactsByCategory -->
+					<div class="tile-group quadro">
+						<div class="tile-group-title"
+							data-class="m"></div>
+
+						<!-- ko foreach: contacts -->
+						<div class="tile bg-lime" data-click="transform"
+							data-class="n">
+							<div class="tile-content">
+								<div class="padding10">
+									<p class="tertiary-text fg-white no-margin"
+										data-class="o"></p>
+								</div>
+							</div>
+							<div class="tile-status" data-class="p">
+								<div class="label" data-class="q"></div>
+							</div>
+						</div>
+						<!-- /ko -->
+					</div>
+					<!-- /ko -->
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
