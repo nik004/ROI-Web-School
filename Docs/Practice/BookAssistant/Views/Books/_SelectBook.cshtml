@@ -1,0 +1,18 @@
+﻿@using System.Web.Optimization
+@model BookAssistant.Models.BooksViewModel
+
+<script>
+    $(function() {
+        $("#books").change(function() {
+            $(this.form).submit();
+        });
+    })
+</script>
+
+<div id="ddlBook">
+    @using (Ajax.BeginForm("GetBook", "Books", new AjaxOptions { UpdateTargetId = "selectedBook" }))
+    {
+        @Html.DropDownListFor(m => m.SelectedBook.Id, new SelectList(Model.Items, "Id", "Title", Model.SelectedBook.Id),new {id="books"})
+    }
+    @Html.Action("GetBook","Books",Model.SelectedBook)
+</div>

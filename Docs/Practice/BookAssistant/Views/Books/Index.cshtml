@@ -1,0 +1,18 @@
+﻿@using System.Web.Optimization
+@model BookAssistant.Models.BooksViewModel
+@Scripts.Render("~/Script/jqueryAjax")
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Books Assistant</title>
+    </head>
+    <body>
+        <div>
+            @Html.Partial("_SelectBook")
+        </div>
+        <div>
+            @Html.Partial("_AddBook")
+        </div>
+    </body>
+</html>

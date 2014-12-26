@@ -1,0 +1,8 @@
+﻿@model BookAssistant.Bussines.Entities.Book
+
+<div>
+    @Html.LabelFor(m => m.Title):@Html.TextBoxFor(m => m.Title)<br />
+    @Html.LabelFor(m => m.Author):@Html.TextBoxFor(m => m.Author)<br />
+    @Html.LabelFor(m => m.Description):@Html.TextBoxFor(m => m.Description)<br/>
+    <input type="submit" title="Add" />
+</div>
