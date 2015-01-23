@@ -1,26 +1,60 @@
-﻿@model IEnumerable<Crm.Domain.IUser>
+﻿@model Crm.Data.CrmViewModel
 @{
     ViewBag.Title = "Index";
 }
-<table>
-    <caption>Users</caption>
-    <thead>
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.Id)</th>
-            <th>@Html.DisplayNameFor(model => model.FirstName)</th>
-            <th>@Html.DisplayNameFor(model => model.LastName)</th>
-            <th>@Html.DisplayNameFor(model => model.Login)</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var user in Model)
-        {
+<script src="~/Scripts/myFunctions.js" type="text/javascript"></script> ;
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Style/IndexStyle.css")" />
+<div id="TableClients">
+    <table>
+        <caption>Clients</caption>
+        <thead>
             <tr>
-                <td>@user.Id</td>
-                <td>@user.FirstName</td>
-                <td>@user.LastName</td>
-                <td>@user.Login</td>
+                <th></th>
+                <th>Clients</th>
+                <th>Age</th>
+                <th>Status</th>
+                <th>Callback</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var Client in Model.ClientList)
+            {
+                <tr> 
+                    <td>@Html.ActionLink("Edit","Edit","Clients", new { id = Client.Client.Id }, null) </td>
+                    <td>@(@Client.Client.FirstName + " " + @Client.Client.LastName)</td>
+                    <td>@Client.Age</td>
+                    <td>@Client.GetTypeLastOperation()</td>
+                    <td>@Client.CallTime</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+    <p></p>
+    <button onclick="location.href='@Url.Action("Add", "Clients")'" id="btnAdd">Add New Client</button>
+</div>
+
+
+    <table id="TableTask">
+        <caption>Task</caption>
+        <thead>
+            <tr>
+                <th>Task</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Task in Model.GetCurrentTasks())
+            {
+                <tr onclick="location.href = '@Url.Action("Add", "Clients")'"  id="TrPointer">
+                    <td>
+                        <div>@(Task.Client.FirstName + " " + Task.Client.LastName) </div>
+                        <div class="Timer" time=@Model.GetRemainTime(@Task)> </div>
+                    </td>
+                </tr>
+            }
+</tbody>
+    </table>
+
+
+

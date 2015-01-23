@@ -3,7 +3,7 @@
     ViewBag.Title = "Add New User";
 }
 <h2>@ViewBag.Title</h2>
-@using (Html.BeginForm("Add", "User"))
+@using (Html.BeginForm(   ("Add", "User"))
 {
     @Html.AntiForgeryToken()
     @Html.EditorForModel()

@@ -25,5 +25,7 @@
 
         [InverseProperty("Client")]
         public virtual ICollection<Operation> Operations { get; set; }
+
+     
     }
 }

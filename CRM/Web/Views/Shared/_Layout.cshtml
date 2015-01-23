@@ -6,6 +6,15 @@
     @RenderSection("scripts", required: false)
 </head>
 <body>
+    @Html.ActionLink("Home", "Index", "Home")
+    <div>
+    Hello, Mr.
+
+    <a href="@Url.Action("Logout", "Home")">Logout</a>
+
+    </div>
     @RenderBody()
 </body>
+
+  
 </html>

@@ -1,0 +1,46 @@
+﻿@model Crm.Data.CallsModelView
+
+@{
+    ViewBag.Title = "Calls";
+}
+
+<p> Client @Model.Client.FirstName @Model.Client.LastName</p>
+<p> Age @Model.GetAge()</p>
+
+<div id="TableContacts">
+    <p>Contacts</p>
+</div>
+
+<div id="TableCalls">
+    <table>
+        <caption>History of Operation</caption>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Type</th>
+                <th>Call back</th>
+                <th>Comment</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Operation in Model.GetAllOperions())
+            {
+                <tr>
+                    <td>@Operation.Performed)</td>
+                    <td>@Operation.Type</td>
+                    <td>@Operation.Callback</td>
+                    <td>@Operation.Comment</td>
+                    <td>@Operation.Amount</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div>
+  
+</div>
+
+

@@ -1,0 +1,25 @@
+﻿@model Crm.Data.ContactsViewModel
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>Type</th>
+        <th>Phone number</th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.GetAll()) {
+    <tr>
+        <td> @item.PhoneType </td>
+        <td> @item.PhoneNr </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

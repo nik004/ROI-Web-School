@@ -1,0 +1,35 @@
+﻿@using System.Web.Optimization
+@model Crm.Data.ClientViewModel
+
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Edit</h2>
+@Html.ActionLink("Home", "Index", "Home")
+
+@using (Html.BeginForm("Add", "Clients"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>New Client</legend>
+        <p> @Html.LabelFor(model => model.Client.FirstName) @Html.EditorFor(model => model.Client.FirstName, new { @type = "string" }) </p>
+        <p> @Html.LabelFor(model => model.Client.LastName)  @Html.EditorFor(model => model.Client.LastName, new { @type = "string" }) </p>
+        <p> @Html.LabelFor(model => model.Client.DateOfBirth)  @Html.EditorFor(model => model.Client.DateOfBirth, new { @type = "date" }) </p>
+
+        <p>
+            <input type="submit" value="Save" />
+            @Html.ActionLink("Cancel", "Index", "Home")
+        </p>
+
+        @{Html.RenderPartial("PartialContacts", new { model = @Model.Contacts });}
+       
+    </fieldset>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,33 @@
+﻿@using System.Web.Optimization
+@model Crm.Data.ClientViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+@Html.ActionLink("Home", "Index", "Home")
+
+@using (Html.BeginForm("Edit", "Clients"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Edit Client</legend>
+        <p> @Html.TextBoxFor(model => model.Client.FirstName, new { @type = "string" }) </p>
+        <p> @Html.TextBoxFor(model => model.Client.LastName, new { @type = "string" }) </p>
+        <p> @Html.TextBoxFor(model => model.Client.DateOfBirth, new { @type = "date" }) </p>
+
+        <p>
+            <input type="submit" value="Save" />
+            @Html.ActionLink("Cancel", "Index", "Home")
+        </p>
+
+    </fieldset>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
